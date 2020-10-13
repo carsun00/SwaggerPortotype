@@ -3,13 +3,17 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.OpenApi.Models;
+using System;
+using System.IO;
+using System.Reflection;
 
-/// <summary>
-///     HackMD 說明
-///         https://hackmd.io/@Syuan/Swagger文件
-/// </summary>
 namespace NetCore_Swagger_Prototype
 {
+    /// <summary>
+    ///     HackMD 說明
+    ///         https://hackmd.io/@Syuan/Swagger文件
+    /// </summary>
     public class Startup
     {
         public Startup(IConfiguration configuration)
@@ -30,7 +34,32 @@ namespace NetCore_Swagger_Prototype
 
             #region Swagger Services
 
-            services.AddSwaggerGen();
+            services.AddSwaggerGen(UiAnnotation =>
+            {
+                /*  Document Info 
+                 *  文件資訊
+                 */
+                UiAnnotation.SwaggerDoc("v1", new OpenApiInfo
+                {
+                    Version = "v1",
+                    Title = "官方文件",
+                    Description = "Microsoft Swagger Document",
+                    TermsOfService = new Uri("https://docs.microsoft.com/zh-tw/aspnet/core/tutorials/getting-started-with-swashbuckle?view=aspnetcore-3.1&tabs=visual-studio"),
+                    Contact = new OpenApiContact
+                    {
+                        Name = "Swageer",
+                        Email = string.Empty,
+                        Url = new Uri("https://swagger.io/"),
+                    }
+                });
+
+                /*  Read annotation generate xml document file.
+                 *  讀取註解產生xml說明文件。
+                 */
+                var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+                var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+                UiAnnotation.IncludeXmlComments(xmlPath);
+            }); ;
 
             #endregion
         }
