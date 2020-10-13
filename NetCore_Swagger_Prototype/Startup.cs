@@ -11,6 +11,10 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 
+/// <summary>
+///     HackMD 說明
+///         https://hackmd.io/@Syuan/Swagger文件
+/// </summary>
 namespace NetCore_Swagger_Prototype
 {
     public class Startup
