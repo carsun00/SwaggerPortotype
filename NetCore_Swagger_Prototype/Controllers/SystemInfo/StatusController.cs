@@ -2,14 +2,17 @@
 
 namespace NetCore_Swagger_Prototype.Controllers.SystemInfo
 {
-    [Route("api/SystemInfo/Status/[controller]")]
+    /// <summary>
+    ///     Supply clinet Test Server Status
+    /// </summary>
+    [Route("api/SystemInfo/[controller]")]
     [ApiController]
     public class StatusController : ControllerBase
     {
         /// <summary>
-        ///     Supply clinet Test Server Status
+        ///     Test Server Status
         /// </summary>
-        /// <returns></returns>
+        /// <returns>A message about system status.</returns>
         [HttpGet]
         public string ApiServericStatus()
         {
