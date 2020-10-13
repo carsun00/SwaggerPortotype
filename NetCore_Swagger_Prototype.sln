@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30225.117
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetCore_Swagger_Prototype", "NetCore_Swagger_Prototype\NetCore_Swagger_Prototype.csproj", "{88276C45-CD72-4059-BBEC-61106C71B8E8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{88276C45-CD72-4059-BBEC-61106C71B8E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{88276C45-CD72-4059-BBEC-61106C71B8E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{88276C45-CD72-4059-BBEC-61106C71B8E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{88276C45-CD72-4059-BBEC-61106C71B8E8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C28FF876-C3B4-4AD1-A91C-8BAB8BB5130B}
+	EndGlobalSection
+EndGlobal
