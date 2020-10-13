@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace NetCore_Swagger_Prototype.Models.Prototype.Test
+namespace NetCore_Swagger_Prototype.Models.Prototype.SystemInfo
 {
     /// <summary>
     ///     Repronse Api Service Test.

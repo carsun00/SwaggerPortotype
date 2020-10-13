@@ -1,10 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace NetCore_Swagger_Prototype.Controllers.Test
+namespace NetCore_Swagger_Prototype.Controllers.SystemInfo
 {
-    [Route("api/SystemStatus/[controller]")]
+    [Route("api/SystemInfo/Status/[controller]")]
     [ApiController]
-    public class SystemStatusController : ControllerBase
+    public class StatusController : ControllerBase
     {
         /// <summary>
         ///     Supply clinet Test Server Status
