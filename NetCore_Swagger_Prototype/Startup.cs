@@ -19,6 +19,7 @@ namespace NetCore_Swagger_Prototype
 
         public IConfiguration Configuration { get; }
 
+        //  This method gets called by the runtime. Use this method to add services to the container.
         //  執行時所需要加載的服務。
         public void ConfigureServices(IServiceCollection services)
         {
@@ -30,13 +31,15 @@ namespace NetCore_Swagger_Prototype
 
             #endregion
         }
-        
-        // 執行時所使用的相關Http服務配置
+
+        //  This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+        //  執行時所使用的相關Http服務配置
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             #region Swagger Setting
 
-            // 允許Swagger使用中介軟體產生的JSON
+            //  Enable middleware to serve generated Swagger as a JSON endpoint.
+            //  允許Swagger使用中介軟體產生的JSON
             app.UseSwagger();
 
             app.UseSwaggerUI(UiTitle =>
