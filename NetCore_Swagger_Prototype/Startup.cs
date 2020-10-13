@@ -41,6 +41,7 @@ namespace NetCore_Swagger_Prototype
 
             app.UseSwaggerUI(UiTitle =>
             {
+                //  Json設定檔路徑與頁面名稱
                 UiTitle.SwaggerEndpoint("/swagger/v1/swagger.json", "Swagger prototype API");
             });
             #endregion
