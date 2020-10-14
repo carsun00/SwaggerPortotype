@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 /// <summary>
@@ -12,7 +8,7 @@ namespace NetCore_Swagger_Prototype.Controllers.Demo
 {
     [Route("Demo/api/[controller]")]
     [ApiController]
-    public class ProducesResponseTypeController : ControllerBase
+    public class DemoProducesResponseTypeController : ControllerBase
     {
         /// <summary>
         ///     ResponseType 範例
@@ -35,7 +31,7 @@ namespace NetCore_Swagger_Prototype.Controllers.Demo
                     return Created("Demo", "Data Create.");
                 case 400:
                     return BadRequest();
-                case 500: 
+                case 500:
                 default:
                     return BadRequest();
                     //  其他狀態以此類推
