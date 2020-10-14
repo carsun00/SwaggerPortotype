@@ -69,6 +69,9 @@ namespace NetCore_Swagger_Prototype
                 var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
                 var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
                 UiAnnotation.IncludeXmlComments(xmlPath);
+
+                //  DemoSwaggerResponse
+                UiAnnotation.EnableAnnotations();
             }); ;
 
             #endregion
