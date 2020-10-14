@@ -1,8 +1,26 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
 
-  <PropertyGroup>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
-  </PropertyGroup>
+	<PropertyGroup>
+		<!--核心版本-->
+		<TargetFramework>netcoreapp3.1</TargetFramework>
+		<!--啟用Swagger的文件格式-->
+		<GenerateDocumentationFile>true</GenerateDocumentationFile>
+		<!--忽略掉的警告設定-->
+		<NoWarn>$(NoWarn);1591</NoWarn>
+		<!--API分析-->
+		<IncludeOpenAPIAnalyzers>true</IncludeOpenAPIAnalyzers>
+	</PropertyGroup>
 
-
+	<ItemGroup>
+		<PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="3.1.8" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="3.1.8" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.8" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.8">
+		  <PrivateAssets>all</PrivateAssets>
+		  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+		<PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.4" />
+		
+		<PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
+	</ItemGroup>
 </Project>
