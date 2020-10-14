@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using NetCore_Swagger_Prototype.Models.DTO.Demo;
 
 /// <summary>
 ///     原生ProducesResponseType的進階功能展示
@@ -47,11 +48,6 @@ namespace NetCore_Swagger_Prototype.Controllers.Demo
                     return BadRequest();
                     //  其他狀態以此類推
             }
-        }
-        public class ProducesResponse
-        {
-            public int StatusCode { get; set; }
-            public string Status { get; set; }
         }
     }
 }
