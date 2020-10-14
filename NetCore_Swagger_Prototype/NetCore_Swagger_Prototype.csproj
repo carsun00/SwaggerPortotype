@@ -6,7 +6,7 @@
 		<!--啟用Swagger的文件格式-->
 		<GenerateDocumentationFile>true</GenerateDocumentationFile>
 		<!--忽略掉的警告設定-->
-		<NoWarn>$(NoWarn);1591</NoWarn>
+		<NoWarn>$(NoWarn);1587,1591</NoWarn>
 		<!--API分析-->
 		<IncludeOpenAPIAnalyzers>true</IncludeOpenAPIAnalyzers>
 	</PropertyGroup>
