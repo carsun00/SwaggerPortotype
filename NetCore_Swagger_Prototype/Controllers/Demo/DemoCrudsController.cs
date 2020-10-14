@@ -7,11 +7,6 @@ using NetCore_Swagger_Prototype.Models.DTO.Demo;
 using NetCore_Swagger_Prototype.Models.Prototype.Demo;
 using Microsoft.AspNetCore.Http;
 
-#pragma warning disable CS1587 // XML 註解沒有放置在有效的語言項目前
-/// <summary>
-///     Demo 如何撰寫註解進而產生文件
-/// </summary>
-#pragma warning restore CS1587 // XML 註解沒有放置在有效的語言項目前
 namespace NetCore_Swagger_Prototype.Controllers.Demo
 {
     //  Supply responses content type - 支援的回應類型

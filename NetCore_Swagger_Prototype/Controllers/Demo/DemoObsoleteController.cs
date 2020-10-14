@@ -5,7 +5,7 @@ namespace NetCore_Swagger_Prototype.Controllers.Demo
 {
     [Route("Demo/api/[controller]")]
     [ApiController]
-    public class ObsoleteController : ControllerBase
+    public class DemoObsoleteController : ControllerBase
     {
         /// <summary>
         ///     過時語法註記展示
