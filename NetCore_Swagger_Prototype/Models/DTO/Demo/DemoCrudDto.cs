@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 
 namespace NetCore_Swagger_Prototype.Models.DTO.Demo
 {
@@ -34,5 +35,4 @@ namespace NetCore_Swagger_Prototype.Models.DTO.Demo
         [DefaultValue(false)]
         public bool IsComplete { get; set; }
     }
-}
 }
