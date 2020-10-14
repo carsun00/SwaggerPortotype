@@ -1,9 +1,11 @@
-using Microsoft.AspNetCore.Builder;
+ï»¿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
+using NetCore_Swagger_Prototype.Models.Prototype.Demo;
 using System;
 using System.IO;
 using System.Reflection;
@@ -11,8 +13,8 @@ using System.Reflection;
 namespace NetCore_Swagger_Prototype
 {
     /// <summary>
-    ///     HackMD »¡©ú
-    ///         https://hackmd.io/@Syuan/Swagger¤å¥ó
+    ///     HackMD èªªæ˜
+    ///         https://hackmd.io/@Syuan/Swaggeræ–‡ä»¶
     /// </summary>
     public class Startup
     {
@@ -25,11 +27,14 @@ namespace NetCore_Swagger_Prototype
 
         /// <summary>
         ///     This method gets called by the runtime. Use this method to add services to the container.
-        ///     °õ¦æ®É©Ò»İ­n¥[¸üªºªA°È¡C
+        ///     åŸ·è¡Œæ™‚æ‰€éœ€è¦åŠ è¼‰çš„æœå‹™ã€‚
         /// </summary>
         /// <param name="services">IService</param>
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContext<DemoContext>(opt =>
+               opt.UseInMemoryDatabase("DemoList"));
+
             services.AddControllers();
 
             #region Swagger Services
@@ -37,24 +42,29 @@ namespace NetCore_Swagger_Prototype
             services.AddSwaggerGen(UiAnnotation =>
             {
                 /*  Document Info 
-                 *  ¤å¥ó¸ê°T
+                 *  æ–‡ä»¶è³‡è¨Š
                  */
                 UiAnnotation.SwaggerDoc("v1", new OpenApiInfo
                 {
                     Version = "v1",
-                    Title = "©x¤è¤å¥ó",
-                    Description = "Microsoft Swagger Document",
+                    Title = "API Title",
+                    Description = "API Description",
                     TermsOfService = new Uri("https://docs.microsoft.com/zh-tw/aspnet/core/tutorials/getting-started-with-swashbuckle?view=aspnetcore-3.1&tabs=visual-studio"),
                     Contact = new OpenApiContact
                     {
-                        Name = "Swageer",
-                        Email = string.Empty,
-                        Url = new Uri("https://swagger.io/"),
+                        Name = "è¯ç¹«æ–¹å¼",
+                        Email = "Someone@Email.com",
+                        Url = new Uri("http://example.com/Contatc"),
+                    },
+                    License = new OpenApiLicense
+                    {
+                        Name = "æˆæ¬Š",
+                        Url = new Uri("https://example.com/license"),
                     }
                 });
 
                 /*  Read annotation generate xml document file.
-                 *  Åª¨úµù¸Ñ²£¥Íxml»¡©ú¤å¥ó¡C
+                 *  è®€å–è¨»è§£ç”¢ç”Ÿxmlèªªæ˜æ–‡ä»¶ã€‚
                  */
                 var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
                 var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
@@ -66,21 +76,21 @@ namespace NetCore_Swagger_Prototype
 
         /// <summary>
         ///     This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        ///     °õ¦æ®É©Ò¨Ï¥Îªº¬ÛÃöHttpªA°È°t¸m
+        ///     åŸ·è¡Œæ™‚æ‰€ä½¿ç”¨çš„ç›¸é—œHttpæœå‹™é…ç½®
         /// </summary>
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             #region Swagger Setting
 
             /*  Enable middleware to serve generated Swagger as a JSON endpoint.
-             *  ¤¹³\Swagger¨Ï¥Î¤¤¤¶³nÅé²£¥ÍªºJSON
+             *  å…è¨±Swaggerä½¿ç”¨ä¸­ä»‹è»Ÿé«”ç”¢ç”Ÿçš„JSON
              */
             app.UseSwagger();
 
             app.UseSwaggerUI(UiTitle =>
             {
                 /* Swagger Json file path and Api page name
-                 * Swagger Json ¸ô®|»P­¶­±¦WºÙ
+                 * Swagger Json è·¯å¾‘èˆ‡é é¢åç¨±
                  */
                 UiTitle.SwaggerEndpoint("/swagger/v1/swagger.json", "Swagger prototype API");
             });
